@@ -1266,22 +1266,3 @@ async def group_message_handler(client: Client, message: Message):
                     return
                 except ChatAdminRequired:
                     return
-
-    # 2. Anti-Badwords Filter
-    text_lower = (text_with_caption or "").lower()
-    for badword in BADWORDS:
-        if badword and badword in text_lower:
-            try:
-                await message.delete()
-                # Store a warning before replying
-                warnings_record = db.warnings.find_one({"user_id": message.from_user.id, "chat_id": message.chat.id})
-                new_warnings = warnings_record['warnings'] + 1 if warnings_record else 1
-                db.warnings.update_one(
-                     {"user_id": message.from_user.id, "chat_id": message.chat.id}, 
-                     {"$set": {"warnings": new_warnings, "last_warned": datetime.utcnow()}}, 
-                     upsert=True
-                )
-                
-                reply_message = f"🤬 **Censored!** Please mind your language, {await get_user_full_name(message.from_user)}. **({new_warnings}/{MAX_WARNINGS} Warnings)**"
-                
-                await message.reply(reply_message, quote=True)
