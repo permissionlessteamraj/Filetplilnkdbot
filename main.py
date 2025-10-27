@@ -1286,5 +1286,4 @@ async def group_message_handler(client: Client, message: Message):
                 
                 await message.reply(reply_message, quote=True)
                 
-                log_text = (
-                    f
+                
