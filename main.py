@@ -43,12 +43,12 @@ load_dotenv(".env")
 
 # --- Configuration ---
 try:
-    API_ID = int(os.environ.get("API_ID"))
-    API_HASH = os.environ.get("API_HASH")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN")
-    MONGO_URI = os.environ.get("MONGO_URI")
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL"))
-    GROUP_LOG_CHANNEL = int(os.environ.get("GROUP_LOG_CHANNEL")) 
+    API_ID = int(os.environ.get("23562992"))
+    API_HASH = os.environ.get("e070a310ca3e76ebc044146b9829237c")
+    BOT_TOKEN = os.environ.get("8436509914:AAEM6aZsOG70ChKv3AZLD_DJwij2PjkMgBg")
+    MONGO_URI = os.environ.get("mongodb+srv://rj5706603:O95nvJYxapyDHfkw@cluster0.fzmckei.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+    LOG_CHANNEL = int(os.environ.get("-1003004261548"))
+    GROUP_LOG_CHANNEL = int(os.environ.get("-1003004261548")) 
     OWNER_ID = int(os.environ.get("OWNER_ID", "7524032836")) # OWNER_ID should be from env if possible
     
     # Safely parse ADMINS, defaulting to OWNER_ID if not set
@@ -56,7 +56,7 @@ try:
     ADMINS = [OWNER_ID] + [int(admin_id.strip()) for admin_id in admin_list if admin_id.strip() and admin_id.strip().isdigit()]
     ADMINS = list(set(ADMINS)) # Remove duplicates
     
-    FORCE_CHANNELS = [channel.strip() for channel in os.environ.get("FORCE_CHANNELS", "").split(',') if channel.strip()]
+    FORCE_CHANNELS = [channel.strip() for channel in os.environ.get("narzoxbot", "").split(',') if channel.strip()]
     
     BADWORDS = [word.strip() for word in os.environ.get("BADWORDS", "bsdk,bc,mc,laura,land,bur,Madharchod,kamina,kutta,fuck,bitch,asshole,randi,madarchod").lower().split(',') if word.strip()]
     MAX_WARNINGS = int(os.environ.get("MAX_WARNINGS", 3))
