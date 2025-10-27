@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python bot.py
+    startCommand: python main.py
     envVars:
       - key: ADMIN_IDS
         value: "123456789,987654321"   # yaha apne admin IDs (comma separated) daalna
