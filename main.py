@@ -1285,5 +1285,3 @@ async def group_message_handler(client: Client, message: Message):
                 reply_message = f"🤬 **Censored!** Please mind your language, {await get_user_full_name(message.from_user)}. **({new_warnings}/{MAX_WARNINGS} Warnings)**"
                 
                 await message.reply(reply_message, quote=True)
-                
-                
